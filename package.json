@@ -1,0 +1,47 @@
+{
+    "name": "goldmencraft-launcher",
+    "productName": "GoldmenCraft",
+    "version": "1.0.0",
+    "description": "Launcher Minecraft pour le serveur GoldmenCraft !",
+    "main": "src/app.js",
+    "author": {
+        "name": "Mewax07",
+        "email": "mewax07@gmail.com"
+    },
+    "scripts": {
+        "start": "cross-env-shell NODE_ENV=dev electron .",
+        "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
+        "build": "node build.js --obf=true --build=platform",
+        "format": "prettier --ignore-unknown --write .",
+        "lint": "eslint"
+    },
+    "license": "Apache-2.0",
+    "nodemonConfig": {
+        "ext": "js,html,css",
+        "ignore": "**/test"
+    },
+    "dependencies": {
+        "electron-updater": "6.6.2",
+        "minecraft-java-core": "4.1.1",
+        "node-bdd": "2.0.4",
+        "node-fetch": "3.3.2",
+        "xml-js": "1.6.11"
+    },
+    "devDependencies": {
+        "@eslint/compat": "1.2.9",
+        "@eslint/js": "9.27.0",
+        "cross-env": "7.0.3",
+        "electron": "36.3.1",
+        "electron-builder": "26.0.12",
+        "eslint": "9.27.0",
+        "eslint-config-prettier": "10.1.5",
+        "globals": "16.2.0",
+        "javascript-obfuscator": "4.1.1",
+        "jimp": "1.6.0",
+        "nodemon": "3.1.10",
+        "png2icons": "2.0.1",
+        "prettier": "3.5.3",
+        "prettier-plugin-organize-imports": "4.1.0",
+        "prettier-plugin-sh": "0.17.4"
+    }
+}

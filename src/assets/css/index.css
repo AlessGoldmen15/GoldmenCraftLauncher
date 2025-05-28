@@ -1,0 +1,35 @@
+@import url(theme.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none !important;
+    -webkit-user-drag: element;
+}
+
+body {
+    background: var(--background);
+    letter-spacing: 0px;
+}
+
+.splash {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 140px;
+    height: 140px;
+    transition:
+        opacity 0.3s,
+        top 1.5s;
+    opacity: 0;
+}
+
+.splash.opacity {
+    opacity: 1;
+}
+
+.splash.translate {
+    top: 130px;
+}
