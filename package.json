@@ -6,8 +6,10 @@
     "main": "src/app.js",
     "author": {
         "name": "Mewax07",
-        "email": "mewax07@gmail.com"
+        "email": "mewax07@gmail.com",
+        "url": "https://github.com/Mewax07"
     },
+    "url": "https://goldmencraft-server.netlify.app",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
@@ -43,5 +45,9 @@
         "prettier": "3.5.3",
         "prettier-plugin-organize-imports": "4.1.0",
         "prettier-plugin-sh": "0.17.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mewax07/GoldmenCraftLauncher.git"
     }
 }
