@@ -1,8 +1,8 @@
-// import config from "./utils/config.js"
+import config from "./utils/config.js"
 import database from "./utils/database.js"
 
 export {
-    // config as config,
+    config as config,
     database as database
 }
 

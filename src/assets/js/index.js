@@ -1,5 +1,6 @@
-const { ipcRenderer} = require("electron")
-import { database } from "./utils.js";
+const { ipcRenderer } = require("electron");
+import { config, database } from "./utils.js";
+const os = require("os");
 
 class Splash {
     constructor() {
@@ -26,12 +27,7 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { message: "Nouveau mods ?", author: "Launcher" },
-            {
-                message:
-                    "Une aventure vous attend! Mais ... une petite mise à jour",
-                author: "Mewax07",
-            },
+            { message: "Idée de nouveau mods ?\n", author: "Launcher" },
             {
                 message: "Bienvenue sur mon Launcher !",
                 author: "AlessGoldmen",
@@ -42,11 +38,10 @@ class Splash {
         this.splashMessage.textContent = splash.message;
         this.splashAuthor.children[0].textContent = "@" + splash.author;
         await sleep(100);
-        document.querySelector("#splash").style.display = "block";
+        document.querySelector("#splash").style.display = "flex";
         await sleep(500);
         this.splash.classList.add("opacity");
         await sleep(500);
-        this.splash.classList.add("translate");
         this.splashMessage.classList.add("opacity");
         this.splashAuthor.classList.add("opacity");
         this.message.classList.add("opacity");
@@ -65,6 +60,44 @@ class Splash {
                     `erreur lors de la recherche de mise à jour : <br>${err.message}`,
                 );
             });
+
+        ipcRenderer.on("updateAvailable", () => {
+            this.setStatus("Mise à jour disponible !");
+            if (os.platform() === "win32") {
+                this.togglePropgress();
+                ipcRenderer.send("start-update");
+            } else {
+                return this.downloadUpdate();
+            }
+        });
+
+        ipcRenderer.on("error", (_e, progress) => {
+            ipcRenderer.send("update-window-progress", {
+                progress: progress.transferred,
+                size: progress.total,
+            });
+            this.setProgress(progress.transferred, progress.total);
+        });
+
+        ipcRenderer.on("update-not-available", () => {
+            console.error("Mise à jour non disponible");
+            this.maintenanceCheck();
+        });
+    }
+
+    async downloadUpdate() {
+        //
+    }
+
+    maintenanceCheck() {
+        config.GetConfig().then((res) => {
+            if (res.isClosed) return this.shutdown(res.closed_message);
+            console.log("Launch");
+            this.startLauncher();
+        }).catch(e => {
+            console.error(e);
+            return this.shutdown("Aucune connexion internet détectée,<br>veuillez réessayer ultétieurement.<br><br>Si le problème perciste veuillez contacter <a href=\"https://github.com/Mewax07\">Mewax07<a>")
+        });
     }
 
     startLauncher() {
@@ -90,10 +123,18 @@ class Splash {
         if (this.progress.classList.toggle("show")) this.setProgress(0, 1);
     }
 
-    setProgress(value, max) {
+    setProgress(value = 0, max = 1) {
+        value = Number(value);
+        max = Number(max);
+    
+        if (!isFinite(value) || !isFinite(max) || max <= 0) {
+            console.warn("Progress non valide :", { value, max });
+            return;
+        }
+    
         this.progress.value = value;
         this.progress.max = max;
-    }
+    }    
 }
 
 function sleep(ms) {
@@ -101,10 +142,9 @@ function sleep(ms) {
 }
 
 document.addEventListener("keydown", (e) => {
-    console.log(e);
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123) {
+    if ((e.ctrlKey && e.shiftKey && e.keyCode == 73) || e.keyCode == 123) {
         ipcRenderer.send("update-window-dev-tools");
     }
-})
+});
 
 new Splash();

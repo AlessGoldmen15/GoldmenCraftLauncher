@@ -3,5 +3,9 @@ build/
 out/
 static/
 data/
+dist/
+app/
+export/
 .env*
 .DS_Store
+dev-app-update.yml

@@ -5,21 +5,30 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none !important;
-    -webkit-user-drag: element;
 }
 
 body {
     background: var(--background);
-    letter-spacing: 0px;
+    color: var(--color);
+    width: 100vw;
+    height: 100vh;
+    app-region: drag;
+}
+
+#splash {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .splash {
-    position: absolute;
-    top: 180px;
-    left: 50%;
-    transform: translate(-50%);
     width: 140px;
     height: 140px;
+    border: none;
+    border-radius: 50%;
     transition:
         opacity 0.3s,
         top 1.5s;
@@ -30,6 +39,79 @@ body {
     opacity: 1;
 }
 
-.splash.translate {
-    top: 130px;
+.splash-message {
+    text-align: center;
+    margin-top: 0.5em;
+    transition: opacity 1.5s;
+    color: var(--color);
+    opacity: 0;
+    font-size: 1.1em;
+}
+
+.splash-message.opacity {
+    opacity: 1;
+}
+
+.splash-author {
+    text-align: center;
+    transition: opacity 1.5s;
+    color: var(--color);
+    opacity: 0;
+}
+
+.splash-author .author {
+    font-size: 0.9em;
+}
+
+.splash-author.opacity {
+    opacity: 1;
+}
+
+.message {
+    text-align: center;
+    color: var(--color);
+    transition: opacity 1.5s;
+    opacity: 0;
+}
+
+.download-update {
+    margin-top: 20px;
+    width: 200px;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 15px;
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.download-update:hover {
+    background: var(--color);
+    color: var(--background);
+    cursor: pointer;
+}
+
+.message.opacity {
+    opacity: 1;
+}
+
+.progress {
+    appearance: none;
+    transition: opacity 0.2s;
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+.progress::-webkit-progress-bar {
+    background-color: var(--background);
+    border: solid 1px var(--element-color);
+    border-radius: 10px;
+}
+
+.progress::-webkit-progress-value {
+    background-color: var(--background);
+    border-radius: 10px;
 }

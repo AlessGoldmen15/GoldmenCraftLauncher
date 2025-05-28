@@ -3,6 +3,7 @@ const path = require("path");
 const os = require("os");
 const pkg = require("../../../../package.json");
 let dev = process.env.DEV_TOOL === "open";
+/** @type {BrowserWindow|undefined} */
 let mainWindow = undefined;
 
 // Fonction de récupération de la fenetre
