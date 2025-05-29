@@ -6,6 +6,7 @@ let dev = process.env.NODE_ENV === "dev";
 
 class database {
     async createDatabase(tableName, tableConfig) {
+        console.log(`${await ipcRenderer.invoke("path-user-data")}${dev ? "../.." : "/databases"}`);
         return await nodedatabase.intilize({
             databaseName: "Databases",
             fileType: dev ? "sqlite" : "db",
