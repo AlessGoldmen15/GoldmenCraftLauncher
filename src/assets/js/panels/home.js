@@ -256,11 +256,14 @@ class Home {
         let infoStarting = document.querySelector(".info-starting-game-text");
         let progressBar = document.querySelector(".progress-bar");
 
+        const path = `${await appdata()}/.goldmencraft`;
+        console.log(path + " appdata: " + await appdata());
+
         let opt = {
             url: options.url,
             authenticator: authenticator,
             timeout: 10000,
-            path: `${await appdata()}/.goldmencraft}`,
+            path: path,
             instance: options.name,
             version: options.loadder.minecraft_version,
             detached:

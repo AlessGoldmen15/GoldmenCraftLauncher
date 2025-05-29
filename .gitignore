@@ -8,7 +8,9 @@ app/
 export/
 .mods/
 .git/
+.goldmencraft/
 .env*
 .DS_Store
 dev-app-update.yml
 debug.log
+Databases.sqlite

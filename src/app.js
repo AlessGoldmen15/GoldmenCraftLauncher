@@ -47,7 +47,7 @@ ipcMain.on("main-window-dev-tools", () =>
 ipcMain.on("main-window-dev-tools-close", () =>
     MainWindow.getWindow().webContents.closeDevTools(),
 );
-ipcMain.on('main-window-close', () => MainWindow.destroyWindow())
+ipcMain.on("main-window-close", () => MainWindow.destroyWindow());
 ipcMain.on("main-window-reload", () => MainWindow.getWindow().reload());
 ipcMain.on("main-window-progress", (event, options) =>
     MainWindow.getWindow().setProgressBar(options.progress / options.size),
@@ -75,7 +75,7 @@ ipcMain.on("update-window-progress-load", () =>
 );
 
 ipcMain.handle("path-user-data", (_e) => app.getPath("userData"));
-ipcMain.handle("appData", (_e) => app.getAppPath("appData"));
+ipcMain.handle("appData", (_e) => app.getPath("appData"));
 
 ipcMain.on("main-window-maximize", () => {
     if (MainWindow.getWindow().isMaximized()) {
