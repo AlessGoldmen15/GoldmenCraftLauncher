@@ -8,8 +8,11 @@ const fs = require("fs");
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
 
+process.env.NODE_ENV = "dev";
+
 // Récupération de l'environement pour savoir si le script est lancer en mode dev ou non.
 let dev = process.env.NODE_ENV === "dev";
+console.log(dev);
 
 // Si c'est le cas on change le répértoire de Electron dans le projet (Non Build, non export)
 if (dev) {
