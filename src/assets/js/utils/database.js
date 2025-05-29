@@ -62,6 +62,11 @@ class database {
             key,
         );
     }
+
+    async deleteData(tableName, key = 1) {
+        let table = await this.getDatabase(tableName);
+        await nodedatabase.deleteData(table, key);
+    }
 }
 
 export default database;

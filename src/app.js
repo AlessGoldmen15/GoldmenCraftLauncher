@@ -47,6 +47,7 @@ ipcMain.on("main-window-dev-tools", () =>
 ipcMain.on("main-window-dev-tools-close", () =>
     MainWindow.getWindow().webContents.closeDevTools(),
 );
+ipcMain.on('main-window-close', () => MainWindow.destroyWindow())
 ipcMain.on("main-window-reload", () => MainWindow.getWindow().reload());
 ipcMain.on("main-window-progress", (event, options) =>
     MainWindow.getWindow().setProgressBar(options.progress / options.size),
@@ -101,7 +102,6 @@ ipcMain.handle("is-dark-theme", (_, theme) => {
 app.on("window-all-closed", () => app.quit());
 
 autoUpdater.autoDownload = false;
-autoUpdater.forceDevUpdateConfig = true;
 
 ipcMain.handle("update-app", async () => {
     return await new Promise(async (resolve, reject) => {

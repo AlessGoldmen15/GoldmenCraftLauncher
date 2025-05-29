@@ -1,10 +1,12 @@
 @import url(theme.css);
+@import url(font.css);
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none !important;
+    font-family: "Space Grotesk", serif;
 }
 
 body {

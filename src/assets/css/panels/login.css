@@ -1,0 +1,93 @@
+.login .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-list {
+    min-height: 50%;
+    padding: 15px;
+    background: var(--background-transparent);
+    border-radius: 15px;
+}
+
+.login-btn-list {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-btn-list button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    background: none;
+    color: var(--color);
+    border: solid 4px var(--element-color);
+    border-radius: 10px;
+    padding: 2rem;
+    flex-direction: row-reverse;
+    cursor: pointer;
+}
+
+.login-btn-list button span {
+    width: 90%;
+    font-size: 1.4rem;
+}
+
+.login-btn-list button i {
+    font-size: 1.4rem;
+}
+
+.login-tabs {
+    position: absolute;
+    padding: 15px;
+    background: var(--background-transparent);
+    border-radius: 15px;
+    text-align: center;
+    min-width: 40%;
+}
+
+.login-home,
+.login-offline,
+.login-AZauth,
+.login-AZauth-A2F {
+    display: none;
+}
+
+.login-text {
+    font-size: 1.3rem;
+}
+
+.connect,
+.back,
+.cancel {
+    background: none;
+    color: var(--color);
+    border: solid 4px var(--element-color);
+    border-radius: 10px;
+    padding: 0.3rem 4rem;
+    font-size: inherit;
+    font-weight: bold;
+    margin: 15px 10px;
+}
+
+.input-login .email, .input-login .password, .A2F {
+    color: var(--color);
+    background: none;
+    border: solid 2px var(--element-color);
+    border-radius: 30px;
+    padding: 0.4rem 1rem;
+    margin-top: 10px;
+}

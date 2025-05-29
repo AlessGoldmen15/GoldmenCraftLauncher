@@ -6,6 +6,9 @@ data/
 dist/
 app/
 export/
+.mods/
+.git/
 .env*
 .DS_Store
 dev-app-update.yml
+debug.log
