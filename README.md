@@ -19,7 +19,7 @@
 ## 🧱 Technologies utilisées
 
 - ⚙️ [Electron](https://www.electronjs.org/)
-- 🧩 [minecraft-java-core](https://github.com/MrFlarid/minecraft-java-core)
+- 🧩 [minecraft-java-core](https://github.com/luuxis/minecraft-java-core)
 - 🔐 Authentification Microsoft / Mojang intégrée
 - 📦 Packaging avec `electron-builder`
 

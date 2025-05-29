@@ -256,13 +256,11 @@ class Home {
         let infoStarting = document.querySelector(".info-starting-game-text");
         let progressBar = document.querySelector(".progress-bar");
 
-        console.log(options);
-
         let opt = {
             url: options.url,
             authenticator: authenticator,
             timeout: 10000,
-            path: `${await appdata()}/${process.platform == "darwin" ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
+            path: `${await appdata()}/.goldmencraft}`,
             instance: options.name,
             version: options.loadder.minecraft_version,
             detached:
@@ -287,7 +285,12 @@ class Home {
             },
 
             JVM_ARGS: options.jvm_args || [],
-            GAME_ARGS: ["--server", "goldmencraftserv.aternos.me", "--port", "29153"],
+            GAME_ARGS: [
+                "--server",
+                "goldmencraftserv.aternos.me",
+                "--port",
+                "29153",
+            ],
 
             screen: {
                 width: configClient.game_config.screen_size.width,

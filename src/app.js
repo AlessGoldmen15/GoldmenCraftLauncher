@@ -102,6 +102,7 @@ ipcMain.handle("is-dark-theme", (_, theme) => {
 app.on("window-all-closed", () => app.quit());
 
 autoUpdater.autoDownload = false;
+autoUpdater.forceDevUpdateConfig = true;
 
 ipcMain.handle("update-app", async () => {
     return await new Promise(async (resolve, reject) => {
