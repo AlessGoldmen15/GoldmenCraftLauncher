@@ -1,7 +1,7 @@
 const nodeFetch = require("node-fetch");
 
 export class skin2D {
-    async creatHeadTexture(data) {
+    async createHeadTexture(data) {
         let image = await getData(data);
         return await new Promise((resolve, reject) => {
             image.addEventListener("load", (e) => {

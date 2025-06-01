@@ -47,7 +47,7 @@ async function appdata() {
 async function addAccount(data) {
     let skin = false;
     if (data?.profile?.skins[0]?.base64)
-        skin = await new skin2D().creatHeadTexture(
+        skin = await new skin2D().createHeadTexture(
             data.profile.skins[0].base64,
         );
     let div = document.createElement("div");
@@ -79,7 +79,7 @@ async function accountSelect(data) {
 }
 
 async function headplayer(skinBase64) {
-    let skin = await new skin2D().creatHeadTexture(skinBase64);
+    let skin = await new skin2D().createHeadTexture(skinBase64);
     document.querySelector(".player-head").style.backgroundImage =
         `url(${skin})`;
 }
@@ -110,11 +110,11 @@ async function setStatus(opt) {
     if (!statusServer.error) {
         statusServerElement.classList.remove("red");
         document.querySelector(".status-player-count").classList.remove("red");
-        statusServerElement.innerHTML = `En ligne - ${statusServer.ms} ms`;
+        statusServerElement.innerHTML = `Serveur En ligne - ${statusServer.ms} ms`;
         playersOnline.innerHTML = statusServer.playersConnect;
     } else {
         statusServerElement.classList.add("red");
-        statusServerElement.innerHTML = `Ferme - 0 ms`;
+        statusServerElement.innerHTML = `Serveur Fermer - 0 ms`;
         document.querySelector(".status-player-count").classList.add("red");
         playersOnline.innerHTML = "0";
     }

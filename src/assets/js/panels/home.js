@@ -5,7 +5,6 @@ import {
     database,
     logger,
     pkg,
-    popup,
     setStatus,
 } from "../utils.js";
 
@@ -257,7 +256,7 @@ class Home {
         let progressBar = document.querySelector(".progress-bar");
 
         const path = `${await appdata()}/.goldmencraft`;
-        console.log(path + " appdata: " + await appdata());
+        console.log(path + " appdata: " + (await appdata()));
 
         let opt = {
             url: options.url,
@@ -281,7 +280,8 @@ class Home {
 
             verify: options.verify,
 
-            ignored: [...options.ignored],
+            // ignored: [...options.ignored],
+            ignored: [],
 
             java: {
                 path: configClient.java_config.java_path,
@@ -319,6 +319,7 @@ class Home {
         });
 
         launch.on("progress", (progress, size) => {
+            console.log(opt, launch);
             infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`;
             ipcRenderer.send("main-window-progress", { progress, size });
             progressBar.value = progress;
@@ -377,14 +378,18 @@ class Home {
         });
 
         launch.on("error", (err) => {
-            let popupError = new popup();
+            if (typeof launch !== "object") {
+                console.log("Aborting launch");
+                console.log(typeof launch);
+            }
+            /*let popupError = new popup();
 
             popupError.openPopup({
                 title: "Erreur",
                 content: err.error,
                 color: "red",
                 options: true,
-            });
+            });*/
 
             if (
                 configClient.launcher_config.closeLauncher == "close-launcher"
@@ -395,8 +400,11 @@ class Home {
             infoStartingBOX.style.display = "none";
             playInstanceBTN.style.display = "flex";
             infoStarting.innerHTML = `Vérification`;
-            new logger(pkg.name, "#7289da");
-            console.log(err);
+            console.log("test: ", typeof launch, launch);
+            // launch.Launch(opt);
+            launch.removeAllListeners();
+            // new logger(pkg.name, "#7289da");
+            console.error(err);
         });
     }
 

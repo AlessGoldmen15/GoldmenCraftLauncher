@@ -10,7 +10,7 @@ class logger {
     }
 
     async Logger(name, color) {
-        console.log = (value) => {
+        /*console.log = (value) => {
             console_log.call(console, `%c[${name}]:`, `color: ${color}`, value);
         };
         console.info = (value) => {
@@ -24,7 +24,7 @@ class logger {
         };
         console.error = (value) => {
             console_error.call(console, `%c[${name}]:`, `color: ${color}`, value);
-        };
+        };*/
     }
 }
 
