@@ -55,6 +55,18 @@ Ce launcher utilise GitHub Releases pour les mises à jour automatiques. Une foi
 - Whitelist du serveur
 - Vérification des fichiers
 
+**📅 v1.0.3 - À venir** :
+
+- Réecriture du projet compiler
+- Application mobile du Launcher
+- Ajout d'onglet Skin Menu pour les versions Crack
+- Téléchargement de l'application (GooglePlay Store( Android ), AppleStore( iOS ))
+- Version téléchargeable Gratuite sur Android
+- Version téléchargeable payante sur iOS
+- Possibilité d'ajout de plugins
+- Possibilité d'accès au Version BEDROCK (GeyserMC)
+- Nouveau hébergeur du serveur
+
 **📅 v1.1.0 - À venir** :
 
 Liste de mises à jour possibles
@@ -85,3 +97,4 @@ Ce projet est sous licence Apache 2.0. Voir [LICENSE.md](LICENSE.md) pour plus d
 - Projet [Selvania-Launcher](https://github.com/luuxis/Selvania-Launcher) de [Luuxis](https://github.com/luuxis)
 - `minecraft-java-core` de MrFlarid
 - Toute la communauté Minecraft open-source ❤️
+
